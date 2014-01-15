@@ -1,0 +1,503 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		75AD3A21187DD59D00FC41FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD3A20187DD59D00FC41FD /* Foundation.framework */; };
+		75AD3A23187DD59D00FC41FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD3A22187DD59D00FC41FD /* CoreGraphics.framework */; };
+		75AD3A25187DD59D00FC41FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD3A24187DD59D00FC41FD /* UIKit.framework */; };
+		75AD3A2B187DD59D00FC41FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75AD3A29187DD59D00FC41FD /* InfoPlist.strings */; };
+		75AD3A2D187DD59D00FC41FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD3A2C187DD59D00FC41FD /* main.m */; };
+		75AD3A31187DD59D00FC41FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD3A30187DD59D00FC41FD /* AppDelegate.m */; };
+		75AD3A34187DD59D00FC41FD /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75AD3A32187DD59D00FC41FD /* Main_iPhone.storyboard */; };
+		75AD3A37187DD59D00FC41FD /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75AD3A35187DD59D00FC41FD /* Main_iPad.storyboard */; };
+		75AD3A3A187DD59D00FC41FD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD3A39187DD59D00FC41FD /* ViewController.m */; };
+		75AD3A3C187DD59D00FC41FD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75AD3A3B187DD59D00FC41FD /* Images.xcassets */; };
+		75AD3A43187DD59D00FC41FD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD3A42187DD59D00FC41FD /* XCTest.framework */; };
+		75AD3A44187DD59D00FC41FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD3A20187DD59D00FC41FD /* Foundation.framework */; };
+		75AD3A45187DD59D00FC41FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD3A24187DD59D00FC41FD /* UIKit.framework */; };
+		75AD3A4D187DD59D00FC41FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75AD3A4B187DD59D00FC41FD /* InfoPlist.strings */; };
+		75AD3A4F187DD59D00FC41FD /* OpenGLSandboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD3A4E187DD59D00FC41FD /* OpenGLSandboxTests.m */; };
+		75AD3A5A187DD5ED00FC41FD /* GLKShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD3A59187DD5ED00FC41FD /* GLKShader.m */; };
+		99BBFBBB187F23E1000EA3DE /* GLKProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BBFBBA187F23E1000EA3DE /* GLKProgram.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		75AD3A46187DD59D00FC41FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75AD3A15187DD59D00FC41FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75AD3A1C187DD59D00FC41FD;
+			remoteInfo = OpenGLSandbox;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		75AD3A1D187DD59D00FC41FD /* OpenGLSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75AD3A20187DD59D00FC41FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		75AD3A22187DD59D00FC41FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		75AD3A24187DD59D00FC41FD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		75AD3A28187DD59D00FC41FD /* OpenGLSandbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenGLSandbox-Info.plist"; sourceTree = "<group>"; };
+		75AD3A2A187DD59D00FC41FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		75AD3A2C187DD59D00FC41FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		75AD3A2E187DD59D00FC41FD /* OpenGLSandbox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenGLSandbox-Prefix.pch"; sourceTree = "<group>"; };
+		75AD3A2F187DD59D00FC41FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		75AD3A30187DD59D00FC41FD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		75AD3A33187DD59D00FC41FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		75AD3A36187DD59D00FC41FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		75AD3A38187DD59D00FC41FD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		75AD3A39187DD59D00FC41FD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		75AD3A3B187DD59D00FC41FD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		75AD3A41187DD59D00FC41FD /* OpenGLSandboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenGLSandboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75AD3A42187DD59D00FC41FD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		75AD3A4A187DD59D00FC41FD /* OpenGLSandboxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenGLSandboxTests-Info.plist"; sourceTree = "<group>"; };
+		75AD3A4C187DD59D00FC41FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		75AD3A4E187DD59D00FC41FD /* OpenGLSandboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLSandboxTests.m; sourceTree = "<group>"; };
+		75AD3A58187DD5ED00FC41FD /* GLKShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKShader.h; sourceTree = "<group>"; };
+		75AD3A59187DD5ED00FC41FD /* GLKShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKShader.m; sourceTree = "<group>"; };
+		99BBFBB9187F23E1000EA3DE /* GLKProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKProgram.h; sourceTree = "<group>"; };
+		99BBFBBA187F23E1000EA3DE /* GLKProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKProgram.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		75AD3A1A187DD59D00FC41FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75AD3A23187DD59D00FC41FD /* CoreGraphics.framework in Frameworks */,
+				75AD3A25187DD59D00FC41FD /* UIKit.framework in Frameworks */,
+				75AD3A21187DD59D00FC41FD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75AD3A3E187DD59D00FC41FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75AD3A43187DD59D00FC41FD /* XCTest.framework in Frameworks */,
+				75AD3A45187DD59D00FC41FD /* UIKit.framework in Frameworks */,
+				75AD3A44187DD59D00FC41FD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		75AD3A14187DD59D00FC41FD = {
+			isa = PBXGroup;
+			children = (
+				75AD3A26187DD59D00FC41FD /* OpenGLSandbox */,
+				75AD3A48187DD59D00FC41FD /* OpenGLSandboxTests */,
+				75AD3A1F187DD59D00FC41FD /* Frameworks */,
+				75AD3A1E187DD59D00FC41FD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		75AD3A1E187DD59D00FC41FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				75AD3A1D187DD59D00FC41FD /* OpenGLSandbox.app */,
+				75AD3A41187DD59D00FC41FD /* OpenGLSandboxTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		75AD3A1F187DD59D00FC41FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75AD3A20187DD59D00FC41FD /* Foundation.framework */,
+				75AD3A22187DD59D00FC41FD /* CoreGraphics.framework */,
+				75AD3A24187DD59D00FC41FD /* UIKit.framework */,
+				75AD3A42187DD59D00FC41FD /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75AD3A26187DD59D00FC41FD /* OpenGLSandbox */ = {
+			isa = PBXGroup;
+			children = (
+				75AD3A2F187DD59D00FC41FD /* AppDelegate.h */,
+				75AD3A30187DD59D00FC41FD /* AppDelegate.m */,
+				75AD3A32187DD59D00FC41FD /* Main_iPhone.storyboard */,
+				75AD3A35187DD59D00FC41FD /* Main_iPad.storyboard */,
+				75AD3A58187DD5ED00FC41FD /* GLKShader.h */,
+				75AD3A59187DD5ED00FC41FD /* GLKShader.m */,
+				99BBFBB9187F23E1000EA3DE /* GLKProgram.h */,
+				99BBFBBA187F23E1000EA3DE /* GLKProgram.m */,
+				75AD3A38187DD59D00FC41FD /* ViewController.h */,
+				75AD3A39187DD59D00FC41FD /* ViewController.m */,
+				75AD3A3B187DD59D00FC41FD /* Images.xcassets */,
+				75AD3A27187DD59D00FC41FD /* Supporting Files */,
+			);
+			path = OpenGLSandbox;
+			sourceTree = "<group>";
+		};
+		75AD3A27187DD59D00FC41FD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75AD3A28187DD59D00FC41FD /* OpenGLSandbox-Info.plist */,
+				75AD3A29187DD59D00FC41FD /* InfoPlist.strings */,
+				75AD3A2C187DD59D00FC41FD /* main.m */,
+				75AD3A2E187DD59D00FC41FD /* OpenGLSandbox-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		75AD3A48187DD59D00FC41FD /* OpenGLSandboxTests */ = {
+			isa = PBXGroup;
+			children = (
+				75AD3A4E187DD59D00FC41FD /* OpenGLSandboxTests.m */,
+				75AD3A49187DD59D00FC41FD /* Supporting Files */,
+			);
+			path = OpenGLSandboxTests;
+			sourceTree = "<group>";
+		};
+		75AD3A49187DD59D00FC41FD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75AD3A4A187DD59D00FC41FD /* OpenGLSandboxTests-Info.plist */,
+				75AD3A4B187DD59D00FC41FD /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		75AD3A1C187DD59D00FC41FD /* OpenGLSandbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75AD3A52187DD59D00FC41FD /* Build configuration list for PBXNativeTarget "OpenGLSandbox" */;
+			buildPhases = (
+				75AD3A19187DD59D00FC41FD /* Sources */,
+				75AD3A1A187DD59D00FC41FD /* Frameworks */,
+				75AD3A1B187DD59D00FC41FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenGLSandbox;
+			productName = OpenGLSandbox;
+			productReference = 75AD3A1D187DD59D00FC41FD /* OpenGLSandbox.app */;
+			productType = "com.apple.product-type.application";
+		};
+		75AD3A40187DD59D00FC41FD /* OpenGLSandboxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75AD3A55187DD59D00FC41FD /* Build configuration list for PBXNativeTarget "OpenGLSandboxTests" */;
+			buildPhases = (
+				75AD3A3D187DD59D00FC41FD /* Sources */,
+				75AD3A3E187DD59D00FC41FD /* Frameworks */,
+				75AD3A3F187DD59D00FC41FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				75AD3A47187DD59D00FC41FD /* PBXTargetDependency */,
+			);
+			name = OpenGLSandboxTests;
+			productName = OpenGLSandboxTests;
+			productReference = 75AD3A41187DD59D00FC41FD /* OpenGLSandboxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		75AD3A15187DD59D00FC41FD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Michael Davidson";
+				TargetAttributes = {
+					75AD3A40187DD59D00FC41FD = {
+						TestTargetID = 75AD3A1C187DD59D00FC41FD;
+					};
+				};
+			};
+			buildConfigurationList = 75AD3A18187DD59D00FC41FD /* Build configuration list for PBXProject "OpenGLSandbox" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 75AD3A14187DD59D00FC41FD;
+			productRefGroup = 75AD3A1E187DD59D00FC41FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				75AD3A1C187DD59D00FC41FD /* OpenGLSandbox */,
+				75AD3A40187DD59D00FC41FD /* OpenGLSandboxTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		75AD3A1B187DD59D00FC41FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75AD3A37187DD59D00FC41FD /* Main_iPad.storyboard in Resources */,
+				75AD3A3C187DD59D00FC41FD /* Images.xcassets in Resources */,
+				75AD3A34187DD59D00FC41FD /* Main_iPhone.storyboard in Resources */,
+				75AD3A2B187DD59D00FC41FD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75AD3A3F187DD59D00FC41FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75AD3A4D187DD59D00FC41FD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		75AD3A19187DD59D00FC41FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75AD3A3A187DD59D00FC41FD /* ViewController.m in Sources */,
+				75AD3A31187DD59D00FC41FD /* AppDelegate.m in Sources */,
+				75AD3A2D187DD59D00FC41FD /* main.m in Sources */,
+				99BBFBBB187F23E1000EA3DE /* GLKProgram.m in Sources */,
+				75AD3A5A187DD5ED00FC41FD /* GLKShader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75AD3A3D187DD59D00FC41FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75AD3A4F187DD59D00FC41FD /* OpenGLSandboxTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		75AD3A47187DD59D00FC41FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 75AD3A1C187DD59D00FC41FD /* OpenGLSandbox */;
+			targetProxy = 75AD3A46187DD59D00FC41FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		75AD3A29187DD59D00FC41FD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75AD3A2A187DD59D00FC41FD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		75AD3A32187DD59D00FC41FD /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75AD3A33187DD59D00FC41FD /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		75AD3A35187DD59D00FC41FD /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75AD3A36187DD59D00FC41FD /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		75AD3A4B187DD59D00FC41FD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75AD3A4C187DD59D00FC41FD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		75AD3A50187DD59D00FC41FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		75AD3A51187DD59D00FC41FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		75AD3A53187DD59D00FC41FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenGLSandbox/OpenGLSandbox-Prefix.pch";
+				INFOPLIST_FILE = "OpenGLSandbox/OpenGLSandbox-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		75AD3A54187DD59D00FC41FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenGLSandbox/OpenGLSandbox-Prefix.pch";
+				INFOPLIST_FILE = "OpenGLSandbox/OpenGLSandbox-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		75AD3A56187DD59D00FC41FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OpenGLSandbox.app/OpenGLSandbox";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenGLSandbox/OpenGLSandbox-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "OpenGLSandboxTests/OpenGLSandboxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		75AD3A57187DD59D00FC41FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OpenGLSandbox.app/OpenGLSandbox";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenGLSandbox/OpenGLSandbox-Prefix.pch";
+				INFOPLIST_FILE = "OpenGLSandboxTests/OpenGLSandboxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		75AD3A18187DD59D00FC41FD /* Build configuration list for PBXProject "OpenGLSandbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75AD3A50187DD59D00FC41FD /* Debug */,
+				75AD3A51187DD59D00FC41FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75AD3A52187DD59D00FC41FD /* Build configuration list for PBXNativeTarget "OpenGLSandbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75AD3A53187DD59D00FC41FD /* Debug */,
+				75AD3A54187DD59D00FC41FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75AD3A55187DD59D00FC41FD /* Build configuration list for PBXNativeTarget "OpenGLSandboxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75AD3A56187DD59D00FC41FD /* Debug */,
+				75AD3A57187DD59D00FC41FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 75AD3A15187DD59D00FC41FD /* Project object */;
+}
