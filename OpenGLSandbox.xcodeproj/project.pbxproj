@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F2E95B318876FDB00BA848B /* GLKSeparateProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E95B218876FDB00BA848B /* GLKSeparateProgram.m */; };
+		2FA5AAF7188CAE370026A74D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA5AAF6188CAE370026A74D /* GLKit.framework */; };
+		2FA5AAF8188CB0BB0026A74D /* Vertex.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2FA5AAF2188CA7540026A74D /* Vertex.vsh */; };
+		2FA5AAF9188CB0CA0026A74D /* fragment.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2FA5AAF4188CA9DC0026A74D /* fragment.fsh */; };
+		2FA5AB4818909DFC0026A74D /* GLKProgramPipelineObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5AB4718909DFC0026A74D /* GLKProgramPipelineObject.m */; };
 		75AD3A21187DD59D00FC41FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD3A20187DD59D00FC41FD /* Foundation.framework */; };
 		75AD3A23187DD59D00FC41FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD3A22187DD59D00FC41FD /* CoreGraphics.framework */; };
 		75AD3A25187DD59D00FC41FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AD3A24187DD59D00FC41FD /* UIKit.framework */; };
@@ -37,6 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F2E95B118876FDB00BA848B /* GLKSeparateProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKSeparateProgram.h; sourceTree = "<group>"; };
+		2F2E95B218876FDB00BA848B /* GLKSeparateProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKSeparateProgram.m; sourceTree = "<group>"; };
+		2FA5AAF2188CA7540026A74D /* Vertex.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Vertex.vsh; sourceTree = "<group>"; };
+		2FA5AAF4188CA9DC0026A74D /* fragment.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fragment.fsh; sourceTree = "<group>"; };
+		2FA5AAF6188CAE370026A74D /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		2FA5AB4618909DFC0026A74D /* GLKProgramPipelineObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKProgramPipelineObject.h; sourceTree = "<group>"; };
+		2FA5AB4718909DFC0026A74D /* GLKProgramPipelineObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKProgramPipelineObject.m; sourceTree = "<group>"; };
 		75AD3A1D187DD59D00FC41FD /* OpenGLSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75AD3A20187DD59D00FC41FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		75AD3A22187DD59D00FC41FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -68,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FA5AAF7188CAE370026A74D /* GLKit.framework in Frameworks */,
 				75AD3A23187DD59D00FC41FD /* CoreGraphics.framework in Frameworks */,
 				75AD3A25187DD59D00FC41FD /* UIKit.framework in Frameworks */,
 				75AD3A21187DD59D00FC41FD /* Foundation.framework in Frameworks */,
@@ -109,6 +122,7 @@
 		75AD3A1F187DD59D00FC41FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2FA5AAF6188CAE370026A74D /* GLKit.framework */,
 				75AD3A20187DD59D00FC41FD /* Foundation.framework */,
 				75AD3A22187DD59D00FC41FD /* CoreGraphics.framework */,
 				75AD3A24187DD59D00FC41FD /* UIKit.framework */,
@@ -127,9 +141,15 @@
 				75AD3A58187DD5ED00FC41FD /* GLKShader.h */,
 				75AD3A59187DD5ED00FC41FD /* GLKShader.m */,
 				99BBFBB9187F23E1000EA3DE /* GLKProgram.h */,
+				2F2E95B118876FDB00BA848B /* GLKSeparateProgram.h */,
+				2F2E95B218876FDB00BA848B /* GLKSeparateProgram.m */,
+				2FA5AAF2188CA7540026A74D /* Vertex.vsh */,
+				2FA5AAF4188CA9DC0026A74D /* fragment.fsh */,
 				99BBFBBA187F23E1000EA3DE /* GLKProgram.m */,
 				75AD3A38187DD59D00FC41FD /* ViewController.h */,
 				75AD3A39187DD59D00FC41FD /* ViewController.m */,
+				2FA5AB4618909DFC0026A74D /* GLKProgramPipelineObject.h */,
+				2FA5AB4718909DFC0026A74D /* GLKProgramPipelineObject.m */,
 				75AD3A3B187DD59D00FC41FD /* Images.xcassets */,
 				75AD3A27187DD59D00FC41FD /* Supporting Files */,
 			);
@@ -241,6 +261,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FA5AAF9188CB0CA0026A74D /* fragment.fsh in Resources */,
+				2FA5AAF8188CB0BB0026A74D /* Vertex.vsh in Resources */,
 				75AD3A37187DD59D00FC41FD /* Main_iPad.storyboard in Resources */,
 				75AD3A3C187DD59D00FC41FD /* Images.xcassets in Resources */,
 				75AD3A34187DD59D00FC41FD /* Main_iPhone.storyboard in Resources */,
@@ -263,9 +285,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F2E95B318876FDB00BA848B /* GLKSeparateProgram.m in Sources */,
 				75AD3A3A187DD59D00FC41FD /* ViewController.m in Sources */,
 				75AD3A31187DD59D00FC41FD /* AppDelegate.m in Sources */,
 				75AD3A2D187DD59D00FC41FD /* main.m in Sources */,
+				2FA5AB4818909DFC0026A74D /* GLKProgramPipelineObject.m in Sources */,
 				99BBFBBB187F23E1000EA3DE /* GLKProgram.m in Sources */,
 				75AD3A5A187DD5ED00FC41FD /* GLKShader.m in Sources */,
 			);
