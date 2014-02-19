@@ -28,6 +28,7 @@
 		75AD3A4D187DD59D00FC41FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75AD3A4B187DD59D00FC41FD /* InfoPlist.strings */; };
 		75AD3A4F187DD59D00FC41FD /* OpenGLSandboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD3A4E187DD59D00FC41FD /* OpenGLSandboxTests.m */; };
 		75AD3A5A187DD5ED00FC41FD /* GLKShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 75AD3A59187DD5ED00FC41FD /* GLKShader.m */; };
+		99A5B5DF18B5678C00E61AB7 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A5B5DE18B5678C00E61AB7 /* AGLKVertexAttribArrayBuffer.m */; };
 		99BBFBBB187F23E1000EA3DE /* GLKProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BBFBBA187F23E1000EA3DE /* GLKProgram.m */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,8 @@
 		75AD3A4E187DD59D00FC41FD /* OpenGLSandboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLSandboxTests.m; sourceTree = "<group>"; };
 		75AD3A58187DD5ED00FC41FD /* GLKShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKShader.h; sourceTree = "<group>"; };
 		75AD3A59187DD5ED00FC41FD /* GLKShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKShader.m; sourceTree = "<group>"; };
+		99A5B5DD18B5678C00E61AB7 /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
+		99A5B5DE18B5678C00E61AB7 /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
 		99BBFBB9187F23E1000EA3DE /* GLKProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKProgram.h; sourceTree = "<group>"; };
 		99BBFBBA187F23E1000EA3DE /* GLKProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKProgram.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +151,8 @@
 				99BBFBBA187F23E1000EA3DE /* GLKProgram.m */,
 				75AD3A38187DD59D00FC41FD /* ViewController.h */,
 				75AD3A39187DD59D00FC41FD /* ViewController.m */,
+				99A5B5DD18B5678C00E61AB7 /* AGLKVertexAttribArrayBuffer.h */,
+				99A5B5DE18B5678C00E61AB7 /* AGLKVertexAttribArrayBuffer.m */,
 				2FA5AB4618909DFC0026A74D /* GLKProgramPipelineObject.h */,
 				2FA5AB4718909DFC0026A74D /* GLKProgramPipelineObject.m */,
 				75AD3A3B187DD59D00FC41FD /* Images.xcassets */,
@@ -289,6 +294,7 @@
 				75AD3A3A187DD59D00FC41FD /* ViewController.m in Sources */,
 				75AD3A31187DD59D00FC41FD /* AppDelegate.m in Sources */,
 				75AD3A2D187DD59D00FC41FD /* main.m in Sources */,
+				99A5B5DF18B5678C00E61AB7 /* AGLKVertexAttribArrayBuffer.m in Sources */,
 				2FA5AB4818909DFC0026A74D /* GLKProgramPipelineObject.m in Sources */,
 				99BBFBBB187F23E1000EA3DE /* GLKProgram.m in Sources */,
 				75AD3A5A187DD5ED00FC41FD /* GLKShader.m in Sources */,

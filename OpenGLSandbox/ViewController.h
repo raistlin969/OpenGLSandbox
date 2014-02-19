@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
 
+@class AGLKVertexAttribArrayBuffer;
+
 @interface ViewController : GLKViewController
+
+@property (strong, nonatomic) AGLKVertexAttribArrayBuffer *vertexBuffer;
 
 @end
