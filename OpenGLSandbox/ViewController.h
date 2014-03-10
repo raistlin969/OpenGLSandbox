@@ -14,5 +14,6 @@
 @interface ViewController : GLKViewController
 
 @property (strong, nonatomic) AGLKVertexAttribArrayBuffer *vertexBuffer;
+@property (strong, nonatomic) EAGLContext *localContext;
 
 @end

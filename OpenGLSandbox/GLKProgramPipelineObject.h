@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic)GLKSeparateProgram *vertexProgram;
 @property (strong, nonatomic)GLKSeparateProgram *fragmentProgram;
+@property (strong, nonatomic)NSMutableDictionary *vertexAttributesByName;
 
 @property (nonatomic)GLuint handle;
 

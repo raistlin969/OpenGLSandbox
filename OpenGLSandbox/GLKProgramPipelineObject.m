@@ -7,6 +7,7 @@
 //
 
 #import "GLKProgramPipelineObject.h"
+#import "GLKAttribute.h"
 
 @implementation GLKProgramPipelineObject
 
@@ -15,6 +16,7 @@
     self = [super init];
     if(self)
     {
+        _vertexAttributesByName = [[NSMutableDictionary alloc] init];
         _vertexProgram = vertex;
         _fragmentProgram = fragment;
         glGenProgramPipelinesEXT(1, &_handle);
@@ -33,6 +35,28 @@
             free(log);
         }
 #endif
+        GLint numCharsInLongestName;
+        glGetProgramiv(_vertexProgram.handle, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH, &numCharsInLongestName);
+        char *nextName = malloc(sizeof(char) * numCharsInLongestName);
+
+        //how many attributes did we find
+        GLint numAttributesFound;
+        glGetProgramiv(_vertexProgram.handle, GL_ACTIVE_ATTRIBUTES, &numAttributesFound);
+
+        for(int i = 0; i < numAttributesFound; i++)
+        {
+            GLint attributeLocation;
+            GLint attributeSize;
+            GLenum attributeType;
+            NSString *stringName;
+            glGetActiveAttrib(_vertexProgram.handle, i, numCharsInLongestName, NULL, &attributeSize, &attributeType, nextName);
+            attributeLocation = glGetAttribLocation(_vertexProgram.handle, nextName);
+            stringName = [NSString stringWithUTF8String:nextName];
+
+            GLKAttribute *newAttribute = [GLKAttribute attributeNamed:stringName GLType:attributeType GLLocation:attributeLocation GLSize:attributeSize];
+            [_vertexAttributesByName setObject:newAttribute forKey:stringName];
+        }
+        free(nextName);
     }
     return self;
 }
