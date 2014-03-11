@@ -27,6 +27,15 @@
     return self;
 }
 
+-(void)dealloc
+{
+    if(self.name > 0)
+    {
+        NSLog(@"[%@] glDeleteBuffer(%i)", [self class], self.name);
+        glDeleteBuffers(1, &(_name));
+    }
+}
+
 -(void)bind
 {
     glBindBuffer(GL_ARRAY_BUFFER, self.name);

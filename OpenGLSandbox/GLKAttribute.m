@@ -21,4 +21,18 @@
     return att;
 }
 
+-(BOOL)isEqual:(id)object
+{
+    if([object class] != [self class])
+        return NO;
+
+    GLKAttribute *other = (GLKAttribute *)object;
+    return other.location == self.location && other.type == self.type && [other.nameInShader isEqualToString:self.nameInShader];
+}
+
+-(NSUInteger)hash
+{
+    return [self.nameInShader hash];
+}
+
 @end

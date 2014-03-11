@@ -78,13 +78,20 @@ static const SceneVertex vertices[] =
     simpleClearingCall.shouldClearColorBit = YES;
     [result addObject:simpleClearingCall];
 
-    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"Vertex"
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"VertexPositionUnprojected"
                                                          ofType:@"vsh"];
     GLKSeparateProgram *vertex = [[GLKSeparateProgram alloc]initFromFile:filePath ShaderType:GLKShaderTypeVertex];
     
-    filePath = [[NSBundle mainBundle] pathForResource:@"fragment" ofType:@"fsh"];
+    filePath = [[NSBundle mainBundle] pathForResource:@"FragmentXYParameterized" ofType:@"fsh"];
     GLKSeparateProgram *fragment = [[GLKSeparateProgram alloc] initFromFile:filePath ShaderType:GLKShaderTypeFragment];
     GLKProgramPipelineObject *ppo = [[GLKProgramPipelineObject alloc]initWithVertex:vertex Fragment:fragment];
+
+    GLKVector2 attributesVirtualXY [3] =
+    {
+        GLKVector2Make(0, 0),
+        GLKVector2Make(0, 1),
+        GLKVector2Make(1, 0)
+    };
 
     for(int i = 0; i < 4; i++)
     {
@@ -103,6 +110,9 @@ static const SceneVertex vertices[] =
         };
         triangle.VAO = [[GLKVertexArrayObject alloc] init];
         [triangle.VAO addVBOForAttribute:attribute filledWithData:cpuBuffer bytesPerArrayElement:sizeof(GLKVector3) arrayLength:triangle.numVerticesToDraw];
+
+        GLKAttribute *attXY = [triangle.ppo attributeNamed:@"a_virtualXY"];
+        [triangle.VAO addVBOForAttribute:attXY filledWithData:attributesVirtualXY bytesPerArrayElement:sizeof(GLKVector2) arrayLength:triangle.numVerticesToDraw];
         
         [result addObject:triangle];
     }

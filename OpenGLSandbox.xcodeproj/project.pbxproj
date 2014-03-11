@@ -34,6 +34,11 @@
 		99A5B5DF18B5678C00E61AB7 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A5B5DE18B5678C00E61AB7 /* AGLKVertexAttribArrayBuffer.m */; };
 		99AB171B18CE1E0D003982DA /* GLKDrawCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AB171A18CE1E0D003982DA /* GLKDrawCall.m */; };
 		99AB171E18CE6A87003982DA /* GLKAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AB171D18CE6A87003982DA /* GLKAttribute.m */; };
+		99AB172318CF6131003982DA /* VertexPositionUnprojected.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 99AB171F18CF5CB5003982DA /* VertexPositionUnprojected.vsh */; };
+		99AB172418CF6136003982DA /* FragmentXYParameterized.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 99AB172118CF5D9B003982DA /* FragmentXYParameterized.fsh */; };
+		99AB172718CF6B1C003982DA /* GLKUniform.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AB172618CF6B1C003982DA /* GLKUniform.m */; };
+		99AB172A18CF8227003982DA /* GLKTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AB172918CF8227003982DA /* GLKTexture.m */; };
+		99AB172D18CF8309003982DA /* GLKTextureLoaderPVRv1.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AB172C18CF8309003982DA /* GLKTextureLoaderPVRv1.m */; };
 		99BBFBBB187F23E1000EA3DE /* GLKProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BBFBBA187F23E1000EA3DE /* GLKProgram.m */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +94,14 @@
 		99AB171A18CE1E0D003982DA /* GLKDrawCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKDrawCall.m; sourceTree = "<group>"; };
 		99AB171C18CE6A87003982DA /* GLKAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKAttribute.h; sourceTree = "<group>"; };
 		99AB171D18CE6A87003982DA /* GLKAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKAttribute.m; sourceTree = "<group>"; };
+		99AB171F18CF5CB5003982DA /* VertexPositionUnprojected.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = VertexPositionUnprojected.vsh; path = ../VertexPositionUnprojected.vsh; sourceTree = "<group>"; };
+		99AB172118CF5D9B003982DA /* FragmentXYParameterized.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FragmentXYParameterized.fsh; sourceTree = "<group>"; };
+		99AB172518CF6B1C003982DA /* GLKUniform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKUniform.h; sourceTree = "<group>"; };
+		99AB172618CF6B1C003982DA /* GLKUniform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKUniform.m; sourceTree = "<group>"; };
+		99AB172818CF8227003982DA /* GLKTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLKTexture.h; path = ../GLKTexture.h; sourceTree = "<group>"; };
+		99AB172918CF8227003982DA /* GLKTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLKTexture.m; path = ../GLKTexture.m; sourceTree = "<group>"; };
+		99AB172B18CF8309003982DA /* GLKTextureLoaderPVRv1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKTextureLoaderPVRv1.h; sourceTree = "<group>"; };
+		99AB172C18CF8309003982DA /* GLKTextureLoaderPVRv1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKTextureLoaderPVRv1.m; sourceTree = "<group>"; };
 		99BBFBB9187F23E1000EA3DE /* GLKProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKProgram.h; sourceTree = "<group>"; };
 		99BBFBBA187F23E1000EA3DE /* GLKProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKProgram.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,11 +174,19 @@
 				99BBFBB9187F23E1000EA3DE /* GLKProgram.h */,
 				2F2E95B118876FDB00BA848B /* GLKSeparateProgram.h */,
 				2F2E95B218876FDB00BA848B /* GLKSeparateProgram.m */,
+				99AB171F18CF5CB5003982DA /* VertexPositionUnprojected.vsh */,
+				99AB172118CF5D9B003982DA /* FragmentXYParameterized.fsh */,
 				2FA5AAF2188CA7540026A74D /* Vertex.vsh */,
 				2FA5AAF4188CA9DC0026A74D /* fragment.fsh */,
 				99BBFBBA187F23E1000EA3DE /* GLKProgram.m */,
 				75AD3A38187DD59D00FC41FD /* ViewController.h */,
 				75AD3A39187DD59D00FC41FD /* ViewController.m */,
+				99AB172818CF8227003982DA /* GLKTexture.h */,
+				99AB172B18CF8309003982DA /* GLKTextureLoaderPVRv1.h */,
+				99AB172C18CF8309003982DA /* GLKTextureLoaderPVRv1.m */,
+				99AB172918CF8227003982DA /* GLKTexture.m */,
+				99AB172518CF6B1C003982DA /* GLKUniform.h */,
+				99AB172618CF6B1C003982DA /* GLKUniform.m */,
 				2F29DCCA18CE87E900515C9E /* GLKBufferObject.h */,
 				2F29DCCD18CE886A00515C9E /* GLKBufferFormat.h */,
 				2F29DCCE18CE886A00515C9E /* GLKBufferFormat.m */,
@@ -291,6 +312,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99AB172418CF6136003982DA /* FragmentXYParameterized.fsh in Resources */,
+				99AB172318CF6131003982DA /* VertexPositionUnprojected.vsh in Resources */,
 				2FA5AAF9188CB0CA0026A74D /* fragment.fsh in Resources */,
 				2FA5AAF8188CB0BB0026A74D /* Vertex.vsh in Resources */,
 				75AD3A37187DD59D00FC41FD /* Main_iPad.storyboard in Resources */,
@@ -316,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F2E95B318876FDB00BA848B /* GLKSeparateProgram.m in Sources */,
+				99AB172A18CF8227003982DA /* GLKTexture.m in Sources */,
 				2F29DCCF18CE886A00515C9E /* GLKBufferFormat.m in Sources */,
 				99AB171E18CE6A87003982DA /* GLKAttribute.m in Sources */,
 				75AD3A3A187DD59D00FC41FD /* ViewController.m in Sources */,
@@ -323,7 +347,9 @@
 				2F29DCC918CE864E00515C9E /* GLKVertexArrayObject.m in Sources */,
 				75AD3A2D187DD59D00FC41FD /* main.m in Sources */,
 				99A5B5DF18B5678C00E61AB7 /* AGLKVertexAttribArrayBuffer.m in Sources */,
+				99AB172D18CF8309003982DA /* GLKTextureLoaderPVRv1.m in Sources */,
 				2F29DCCC18CE87E900515C9E /* GLKBufferObject.m in Sources */,
+				99AB172718CF6B1C003982DA /* GLKUniform.m in Sources */,
 				2FA5AB4818909DFC0026A74D /* GLKProgramPipelineObject.m in Sources */,
 				99BBFBBB187F23E1000EA3DE /* GLKProgram.m in Sources */,
 				75AD3A5A187DD5ED00FC41FD /* GLKShader.m in Sources */,

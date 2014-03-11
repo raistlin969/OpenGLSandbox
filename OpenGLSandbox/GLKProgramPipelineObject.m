@@ -8,6 +8,7 @@
 
 #import "GLKProgramPipelineObject.h"
 #import "GLKAttribute.h"
+#import "GLKUniform.h"
 
 @implementation GLKProgramPipelineObject
 
@@ -57,8 +58,46 @@
             [_vertexAttributesByName setObject:newAttribute forKey:stringName];
         }
         free(nextName);
+
+        //uniforms
+        _uniformVariablesByName = [[NSMutableDictionary alloc] init];
+        glGetProgramiv(_vertexProgram.handle, GL_ACTIVE_UNIFORM_MAX_LENGTH, &numCharsInLongestName);
+        nextName = malloc(sizeof(char) * numCharsInLongestName);
+
+        GLint numUniformsFound;
+        glGetProgramiv(_vertexProgram.handle, GL_ACTIVE_UNIFORMS, &numUniformsFound);
+
+        for(int i = 0; i < numUniformsFound; i++)
+        {
+            GLint uniformSize, uniformLocation;
+            GLenum uniformType;
+            NSString *stringName;
+
+            glGetActiveUniform(_vertexProgram.handle, i, numCharsInLongestName, NULL, &uniformSize, &uniformType, nextName);
+            uniformLocation = glGetUniformLocation(_vertexProgram.handle, nextName);
+
+            GLKUniform *newUniform = [GLKUniform uniformNamed:stringName GLType:uniformType GLLocation:uniformLocation numElementsInArray:uniformSize];
+            [_uniformVariablesByName setObject:newUniform forKey:stringName];
+        }
+        free(nextName);
     }
     return self;
+}
+
+-(void)dealloc
+{
+    self.vertexProgram = nil;
+    self.fragmentProgram = nil;
+    self.vertexAttributesByName = nil;
+    self.uniformVariablesByName = nil;
+
+    if(self.handle)
+    {
+        glDeleteProgram(self.handle);
+        NSLog(@"[%@] dealloc: Deleted GL program with GL name = %i", [self class], self.handle);
+    }
+    else
+        NSLog(@"[%@] dealloc: NOT deleteing GL program (no GL name)", [self class]);
 }
 
 -(GLKAttribute *)attributeNamed:(NSString *)name
@@ -66,9 +105,19 @@
     return [self.vertexAttributesByName objectForKey:name];
 }
 
+-(GLKUniform *)uniformNamed:(NSString *)name
+{
+    return [self.uniformVariablesByName objectForKey:name];
+}
+
 -(NSArray *)allAttributes
 {
     return [self.vertexAttributesByName allValues];
+}
+
+-(NSArray *)allUniforms
+{
+    return [self.uniformVariablesByName allValues];
 }
 
 @end
