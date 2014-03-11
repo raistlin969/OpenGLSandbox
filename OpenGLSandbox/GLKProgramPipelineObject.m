@@ -61,4 +61,14 @@
     return self;
 }
 
+-(GLKAttribute *)attributeNamed:(NSString *)name
+{
+    return [self.vertexAttributesByName objectForKey:name];
+}
+
+-(NSArray *)allAttributes
+{
+    return [self.vertexAttributesByName allValues];
+}
+
 @end

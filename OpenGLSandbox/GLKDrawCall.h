@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "GLKProgramPipelineObject.h"
+#import "GLKVertexArrayObject.h"
 
 @interface GLKDrawCall : NSObject
 
 @property (nonatomic)BOOL shouldClearColorBit;
 @property (strong, nonatomic)GLKProgramPipelineObject *ppo;
-
+@property (strong, nonatomic)GLKVertexArrayObject *VAO;
+@property (nonatomic)BOOL requiresDepthTest;
+@property (nonatomic)GLuint glDrawCallType;
+@property (nonatomic)GLuint numVerticesToDraw;
 
 -(id)init;
 -(float *)clearColorArray;

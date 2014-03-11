@@ -10,6 +10,7 @@
 #import "GLKSeparateProgram.h"
 #import "GLKProgramPipelineObject.h"
 #import "AGLKVertexAttribArrayBuffer.h"
+#import "GLKAttribute.h"
 #import "GLKDrawCall.h"
 #import <GLKit/GLKit.h>
 
@@ -63,13 +64,55 @@ static const SceneVertex vertices[] =
         glBindProgramPipelineEXT(drawCall.ppo.handle);
     else
         glBindProgramPipelineEXT(0);
+    
+    if(drawCall.VAO != nil)
+        glBindVertexArrayOES(drawCall.VAO.name);
 
     glDrawArrays(GL_TRIANGLES, 0, 6);
+}
+
+-(NSMutableArray *)createAllDrawCalls
+{
+    NSMutableArray *result = [NSMutableArray array];
+    GLKDrawCall *simpleClearingCall = [[GLKDrawCall alloc] init];
+    simpleClearingCall.shouldClearColorBit = YES;
+    [result addObject:simpleClearingCall];
+
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"Vertex"
+                                                         ofType:@"vsh"];
+    GLKSeparateProgram *vertex = [[GLKSeparateProgram alloc]initFromFile:filePath ShaderType:GLKShaderTypeVertex];
+    
+    filePath = [[NSBundle mainBundle] pathForResource:@"fragment" ofType:@"fsh"];
+    GLKSeparateProgram *fragment = [[GLKSeparateProgram alloc] initFromFile:filePath ShaderType:GLKShaderTypeFragment];
+    GLKProgramPipelineObject *ppo = [[GLKProgramPipelineObject alloc]initWithVertex:vertex Fragment:fragment];
+
+    for(int i = 0; i < 4; i++)
+    {
+        GLKDrawCall *triangle = [[GLKDrawCall alloc] init];
+        triangle.ppo = ppo;
+        glBindProgramPipelineEXT(triangle.ppo.handle);
+        GLKAttribute *attribute = [triangle.ppo attributeNamed:@"position"];
+        
+        GLfloat z = -0.5;
+        triangle.numVerticesToDraw = 3;
+        GLKVector3 cpuBuffer[3] =
+        {
+            GLKVector3Make(-1 + i%2, -1 + i/2, z),
+            GLKVector3Make(-0.5 + i%2, 0 + i/2, z),
+            GLKVector3Make(0 + i%2, -1 + i/2, z)
+        };
+        triangle.VAO = [[GLKVertexArrayObject alloc] init];
+        [triangle.VAO addVBOForAttribute:attribute filledWithData:cpuBuffer bytesPerArrayElement:sizeof(GLKVector3) arrayLength:triangle.numVerticesToDraw];
+        
+        [result addObject:triangle];
+    }
+    return result;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.preferredFramesPerSecond = 60;
 	// Do any additional setup after loading the view, typically from a nib.
     if(self.localContext == nil)
     {
@@ -77,11 +120,7 @@ static const SceneVertex vertices[] =
     }
     NSAssert(self.localContext != nil, @"Failed to create ES context");
 
-    self.drawCalls = [[NSMutableArray alloc] init];
-    GLKDrawCall *simpleClearingCall = [[GLKDrawCall alloc] init];
-    simpleClearingCall.shouldClearColorBit = YES;
-    [self.drawCalls addObject:simpleClearingCall];
-
+    
     GLKView *view = (GLKView *)self.view;
     view.context = self.localContext;
     [EAGLContext setCurrentContext:self.localContext];
@@ -92,51 +131,7 @@ static const SceneVertex vertices[] =
     for (NSString *oneExtension in extensions)
         NSLog(@"%@", oneExtension);
 
-    GLKDrawCall *draw1Triangle = [[GLKDrawCall alloc] init];
-    [self.drawCalls addObject:draw1Triangle];
-    [draw1Triangle setClearColorRed:0.0 green:1.0 blue:0.0 alpha:1.0];
-    draw1Triangle.shouldClearColorBit = NO;
-
-    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"Vertex"
-                                                         ofType:@"vsh"];
-    GLKSeparateProgram *vertex = [[GLKSeparateProgram alloc]initFromFile:filePath ShaderType:GLKShaderTypeVertex];
-    
-    filePath = [[NSBundle mainBundle] pathForResource:@"fragment" ofType:@"fsh"];
-    GLKSeparateProgram *fragment = [[GLKSeparateProgram alloc] initFromFile:filePath ShaderType:GLKShaderTypeFragment];
-    draw1Triangle.ppo = [[GLKProgramPipelineObject alloc]initWithVertex:vertex Fragment:fragment];
-    glBindProgramPipelineEXT(draw1Triangle.ppo.handle);
-
-    // Create vertex buffer containing vertices to draw
-
-//    self.vertexBuffer = [[AGLKVertexAttribArrayBuffer alloc] initWithAttribStride:sizeof(SceneVertex)
-//                                                                 numberOfVertices:sizeof(vertices) / sizeof(SceneVertex)
-//                                                                             data:vertices
-//                                                                            usage:GL_STATIC_DRAW];
-
-
-    //make some geometry
-    GLfloat z = -0.5;
-    GLKVector3 cpuBuffer[] =
-    {
-        GLKVector3Make(-1, -1, z),
-        GLKVector3Make(-1, 1, z),
-        GLKVector3Make(1, 1, z),
-        GLKVector3Make(1, 1, z),
-        GLKVector3Make(1, -1, z),
-        GLKVector3Make(-1, -1, z)
-    };
-
-    GLuint vboName;
-    glGenBuffers(1, &vboName);
-    glBindBuffer(GL_ARRAY_BUFFER, vboName);
-    glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(GLKVector3), cpuBuffer, GL_STATIC_DRAW);
-
-    GLuint vaoName;
-    glGenVertexArraysOES(1, &vaoName);
-    glBindVertexArrayOES(vaoName);
-
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    self.drawCalls = [self createAllDrawCalls];
 }
 
 //-(void)glkView:(GLKView *)view drawInRect:(CGRect)rect

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "GLKSeparateProgram.h"
 
+@class GLKAttribute;
+
 @interface GLKProgramPipelineObject : NSObject
 
 @property (strong, nonatomic)GLKSeparateProgram *vertexProgram;
@@ -18,5 +20,7 @@
 @property (nonatomic)GLuint handle;
 
 -(id)initWithVertex:(GLKSeparateProgram *)vertex Fragment:(GLKSeparateProgram *)fragment;
+-(GLKAttribute *)attributeNamed:(NSString *)name;
+-(NSArray *)allAttributes;
 
 @end
