@@ -61,11 +61,11 @@
 
         //uniforms
         _uniformVariablesByName = [[NSMutableDictionary alloc] init];
-        glGetProgramiv(_vertexProgram.handle, GL_ACTIVE_UNIFORM_MAX_LENGTH, &numCharsInLongestName);
+        glGetProgramiv(_fragmentProgram.handle, GL_ACTIVE_UNIFORM_MAX_LENGTH, &numCharsInLongestName);
         nextName = malloc(sizeof(char) * numCharsInLongestName);
 
         GLint numUniformsFound;
-        glGetProgramiv(_vertexProgram.handle, GL_ACTIVE_UNIFORMS, &numUniformsFound);
+        glGetProgramiv(_fragmentProgram.handle, GL_ACTIVE_UNIFORMS, &numUniformsFound);
 
         for(int i = 0; i < numUniformsFound; i++)
         {
@@ -73,9 +73,9 @@
             GLenum uniformType;
             NSString *stringName;
 
-            glGetActiveUniform(_vertexProgram.handle, i, numCharsInLongestName, NULL, &uniformSize, &uniformType, nextName);
-            uniformLocation = glGetUniformLocation(_vertexProgram.handle, nextName);
-
+            glGetActiveUniform(_fragmentProgram.handle, i, numCharsInLongestName, NULL, &uniformSize, &uniformType, nextName);
+            uniformLocation = glGetUniformLocation(_fragmentProgram.handle, nextName);
+            stringName = [NSString stringWithUTF8String:nextName];
             GLKUniform *newUniform = [GLKUniform uniformNamed:stringName GLType:uniformType GLLocation:uniformLocation numElementsInArray:uniformSize];
             [_uniformVariablesByName setObject:newUniform forKey:stringName];
         }

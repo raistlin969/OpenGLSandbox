@@ -12,6 +12,8 @@
 #import "AGLKVertexAttribArrayBuffer.h"
 #import "GLKAttribute.h"
 #import "GLKDrawCall.h"
+#import "GLKTexture.h"
+#import "GLKUniform.h"
 #import <GLKit/GLKit.h>
 
 @interface ViewController ()
@@ -67,6 +69,13 @@ static const SceneVertex vertices[] =
     
     if(drawCall.VAO != nil)
         glBindVertexArrayOES(drawCall.VAO.name);
+    
+    for(GLKUniform *sampler in drawCall.texturesFromSamplers)
+    {
+        GLKTexture *texture = [drawCall.texturesFromSamplers objectForKey:sampler];
+        glActiveTexture(GL_TEXTURE0 + [drawCall textureUnitOffsetForSampler:sampler]);
+        glBindTexture(GL_TEXTURE_2D, texture.name);
+    }
 
     glDrawArrays(GL_TRIANGLES, 0, 6);
 }
@@ -86,36 +95,47 @@ static const SceneVertex vertices[] =
     GLKSeparateProgram *fragment = [[GLKSeparateProgram alloc] initFromFile:filePath ShaderType:GLKShaderTypeFragment];
     GLKProgramPipelineObject *ppo = [[GLKProgramPipelineObject alloc]initWithVertex:vertex Fragment:fragment];
 
-    GLKVector2 attributesVirtualXY [3] =
+    GLKDrawCall *drawQuad = [[GLKDrawCall alloc] init];
+    drawQuad.numVerticesToDraw = 6;
+    drawQuad.ppo = ppo;
+    glBindProgramPipelineEXT(drawQuad.ppo.handle);
+    GLfloat z = -0.5;
+    GLKVector3 cpuBufferQuad[6] =
     {
-        GLKVector2Make(0, 0),
-        GLKVector2Make(0, 1),
-        GLKVector2Make(1, 0)
+        GLKVector3Make(-0.5, -0.5, z),
+        GLKVector3Make(-0.5, 0.5, z),
+        GLKVector3Make(0.5, 0.5, z),
+        GLKVector3Make(-0.5, -0.5, z),
+        GLKVector3Make(0.5, 0.5, z),
+        GLKVector3Make(0.5, -0.5, z)
     };
-
-    for(int i = 0; i < 4; i++)
+    
+    GLKVector2 attributesVirtualXY [6] =
     {
-        GLKDrawCall *triangle = [[GLKDrawCall alloc] init];
-        triangle.ppo = ppo;
-        glBindProgramPipelineEXT(triangle.ppo.handle);
-        GLKAttribute *attribute = [triangle.ppo attributeNamed:@"position"];
-        
-        GLfloat z = -0.5;
-        triangle.numVerticesToDraw = 3;
-        GLKVector3 cpuBuffer[3] =
-        {
-            GLKVector3Make(-1 + i%2, -1 + i/2, z),
-            GLKVector3Make(-0.5 + i%2, 0 + i/2, z),
-            GLKVector3Make(0 + i%2, -1 + i/2, z)
-        };
-        triangle.VAO = [[GLKVertexArrayObject alloc] init];
-        [triangle.VAO addVBOForAttribute:attribute filledWithData:cpuBuffer bytesPerArrayElement:sizeof(GLKVector3) arrayLength:triangle.numVerticesToDraw];
-
-        GLKAttribute *attXY = [triangle.ppo attributeNamed:@"a_virtualXY"];
-        [triangle.VAO addVBOForAttribute:attXY filledWithData:attributesVirtualXY bytesPerArrayElement:sizeof(GLKVector2) arrayLength:triangle.numVerticesToDraw];
-        
-        [result addObject:triangle];
-    }
+        GLKVector2Make(0, 1),
+        GLKVector2Make(0, 0),
+        GLKVector2Make(1, 0),
+        GLKVector2Make(0, 1),
+        GLKVector2Make(1, 0),
+        GLKVector2Make(1, 1)
+    };
+    
+    drawQuad.VAO = [[GLKVertexArrayObject alloc]init];
+    GLKAttribute *position = [drawQuad.ppo attributeNamed:@"position"];
+    [drawQuad.VAO addVBOForAttribute:position filledWithData:cpuBufferQuad bytesPerArrayElement:sizeof(GLKVector3) arrayLength:drawQuad.numVerticesToDraw];
+    GLKAttribute *attXY = [drawQuad.ppo attributeNamed:@"a_virtualXY"];
+    [drawQuad.VAO addVBOForAttribute:attXY filledWithData:attributesVirtualXY bytesPerArrayElement:sizeof(GLKVector2) arrayLength:drawQuad.numVerticesToDraw];
+    
+    NSError *error;
+    GLKTextureInfo *appleTex = [GLKTextureLoader textureWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tex2" ofType:@"png"] options:nil error:&error];
+    
+    NSAssert(appleTex != nil, @"Error loading texture: %@", error);
+    GLKTexture *texture = [GLKTexture texturePreLoadedByApplesGLKit:appleTex];
+    
+    GLKUniform *uniformTex = [drawQuad.ppo uniformNamed:@"s_texture"];
+    [drawQuad setTexture:texture forSampler:uniformTex];
+    
+    [result addObject:drawQuad];
     return result;
 }
 

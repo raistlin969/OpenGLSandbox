@@ -10,6 +10,7 @@
 		2F29DCC918CE864E00515C9E /* GLKVertexArrayObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F29DCC818CE864E00515C9E /* GLKVertexArrayObject.m */; };
 		2F29DCCC18CE87E900515C9E /* GLKBufferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F29DCCB18CE87E900515C9E /* GLKBufferObject.m */; };
 		2F29DCCF18CE886A00515C9E /* GLKBufferFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F29DCCE18CE886A00515C9E /* GLKBufferFormat.m */; };
+		2F29DCD118CFDE8F00515C9E /* tex2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F29DCD018CFDE8F00515C9E /* tex2.png */; };
 		2F2E95B318876FDB00BA848B /* GLKSeparateProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E95B218876FDB00BA848B /* GLKSeparateProgram.m */; };
 		2FA5AAF7188CAE370026A74D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA5AAF6188CAE370026A74D /* GLKit.framework */; };
 		2FA5AAF8188CB0BB0026A74D /* Vertex.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2FA5AAF2188CA7540026A74D /* Vertex.vsh */; };
@@ -59,6 +60,7 @@
 		2F29DCCB18CE87E900515C9E /* GLKBufferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKBufferObject.m; sourceTree = "<group>"; };
 		2F29DCCD18CE886A00515C9E /* GLKBufferFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKBufferFormat.h; sourceTree = "<group>"; };
 		2F29DCCE18CE886A00515C9E /* GLKBufferFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKBufferFormat.m; sourceTree = "<group>"; };
+		2F29DCD018CFDE8F00515C9E /* tex2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex2.png; sourceTree = "<group>"; };
 		2F2E95B118876FDB00BA848B /* GLKSeparateProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKSeparateProgram.h; sourceTree = "<group>"; };
 		2F2E95B218876FDB00BA848B /* GLKSeparateProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKSeparateProgram.m; sourceTree = "<group>"; };
 		2FA5AAF2188CA7540026A74D /* Vertex.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Vertex.vsh; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				99BBFBBA187F23E1000EA3DE /* GLKProgram.m */,
 				75AD3A38187DD59D00FC41FD /* ViewController.h */,
 				75AD3A39187DD59D00FC41FD /* ViewController.m */,
+				2F29DCD018CFDE8F00515C9E /* tex2.png */,
 				99AB172818CF8227003982DA /* GLKTexture.h */,
 				99AB172B18CF8309003982DA /* GLKTextureLoaderPVRv1.h */,
 				99AB172C18CF8309003982DA /* GLKTextureLoaderPVRv1.m */,
@@ -314,6 +317,7 @@
 			files = (
 				99AB172418CF6136003982DA /* FragmentXYParameterized.fsh in Resources */,
 				99AB172318CF6131003982DA /* VertexPositionUnprojected.vsh in Resources */,
+				2F29DCD118CFDE8F00515C9E /* tex2.png in Resources */,
 				2FA5AAF9188CB0CA0026A74D /* fragment.fsh in Resources */,
 				2FA5AAF8188CB0BB0026A74D /* Vertex.vsh in Resources */,
 				75AD3A37187DD59D00FC41FD /* Main_iPad.storyboard in Resources */,

@@ -7,6 +7,6 @@ varying mediump vec2 v_virtualXY;
 
 void main()
 {
-    v_virtualXY = 3.1415926 * (2.0 * a_virtualXY) - 3.1415926;
+    v_virtualXY = a_virtualXY;
     gl_Position = position;
 }
