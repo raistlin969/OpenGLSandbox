@@ -16,6 +16,8 @@
 #import "GLKUniform.h"
 #import <GLKit/GLKit.h>
 
+#define ARC4RANDOM_MAX      0x100000000
+
 @interface ViewController ()
 
 @property (strong, nonatomic)NSMutableArray *drawCalls;
@@ -130,9 +132,42 @@ static const SceneVertex vertices[] =
     GLKTextureInfo *appleTex = [GLKTextureLoader textureWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tex2" ofType:@"png"] options:nil error:&error];
     
     NSAssert(appleTex != nil, @"Error loading texture: %@", error);
-    GLKTexture *texture = [GLKTexture texturePreLoadedByApplesGLKit:appleTex];
+    //GLKTexture *texture = [GLKTexture texturePreLoadedByApplesGLKit:appleTex];
     
     GLKUniform *uniformTex = [drawQuad.ppo uniformNamed:@"s_texture"];
+    
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    
+    int w = (int)screenWidth;
+    int h = (int)screenHeight;
+    
+    float data[256][256][4];
+    
+    for(int i = 0; i < 256; i++)
+    {
+        for(int j = 0; j < 256; j++)
+        {
+            data[i][j][0] = ((float)arc4random() / ARC4RANDOM_MAX);
+            data[i][j][1] = ((float)arc4random() / ARC4RANDOM_MAX);
+            data[i][j][2] = ((float)arc4random() / ARC4RANDOM_MAX);
+            data[i][j][3] = ((float)arc4random() / ARC4RANDOM_MAX);
+        }
+    }
+    
+    uint textureID;
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 256, 256, 0, GL_BGRA, GL_FLOAT, data);
+    
+    GLKTexture *texture = [[GLKTexture alloc] initWithName:textureID];
+    
     [drawQuad setTexture:texture forSampler:uniformTex];
     
     [result addObject:drawQuad];
