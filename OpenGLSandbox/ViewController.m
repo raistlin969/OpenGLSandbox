@@ -38,6 +38,11 @@ static const SceneVertex vertices[] =
     {{-0.5f,  0.5f, 0.0}}  // upper left corner
 };
 
+-(BOOL)shouldAutorotate
+{
+    return NO;
+}
+
 -(void)renderSingleFrame
 {
     if([EAGLContext currentContext] == nil)
@@ -104,22 +109,22 @@ static const SceneVertex vertices[] =
     GLfloat z = -0.5;
     GLKVector3 cpuBufferQuad[6] =
     {
-        GLKVector3Make(-0.5, -0.5, z),
-        GLKVector3Make(-0.5, 0.5, z),
-        GLKVector3Make(0.5, 0.5, z),
-        GLKVector3Make(-0.5, -0.5, z),
-        GLKVector3Make(0.5, 0.5, z),
-        GLKVector3Make(0.5, -0.5, z)
+        GLKVector3Make(-1.0, -1.0, z),
+        GLKVector3Make(-1.0, 1.0, z),
+        GLKVector3Make(1.0, 1.0, z),
+        GLKVector3Make(-1.0, -1.0, z),
+        GLKVector3Make(1.0, 1.0, z),
+        GLKVector3Make(1.0, -1.0, z)
     };
     
     GLKVector2 attributesVirtualXY [6] =
     {
-        GLKVector2Make(0, 1),
-        GLKVector2Make(0, 0),
-        GLKVector2Make(1, 0),
-        GLKVector2Make(0, 1),
-        GLKVector2Make(1, 0),
-        GLKVector2Make(1, 1)
+        GLKVector2Make(0, 1),   //01
+        GLKVector2Make(0, 0),   //00
+        GLKVector2Make(1, 0),   //10
+        GLKVector2Make(0, 1),   //01
+        GLKVector2Make(1, 0),   //10
+        GLKVector2Make(1, 1)    //11
     };
     
     drawQuad.VAO = [[GLKVertexArrayObject alloc]init];
@@ -138,33 +143,63 @@ static const SceneVertex vertices[] =
     
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    CGFloat screenHeight = screenRect.size.height;
-    
+    CGFloat screenHeight = 1024.0; //= self.view.bounds.size.height;
+    CGFloat screenWidth = 1024.0; //self.view.bounds.size.width;
     int w = (int)screenWidth;
     int h = (int)screenHeight;
     
-    float data[256][256][4];
-    
-    for(int i = 0; i < 256; i++)
+    float *data = malloc(w*h*4*sizeof(float));
+
+//    double mapRange(double a1,double a2,double b1,double b2,double s)
+//    {
+//        return b1 + (s-a1)*(b2-b1)/(a2-a1);
+//    }
+
+    float realMin = -1.8;
+    float imMax = 1.2;
+    float imMin = -1.2;
+    float realMax = (screenWidth * ((imMax - imMin)/screenHeight)) + realMin;
+    int x, y = 0;
+    float v;
+    for(int i = 0; i < w*h*4; i+=4)
     {
-        for(int j = 0; j < 256; j++)
+        if(x == w)
         {
-            data[i][j][0] = ((float)arc4random() / ARC4RANDOM_MAX);
-            data[i][j][1] = ((float)arc4random() / ARC4RANDOM_MAX);
-            data[i][j][2] = ((float)arc4random() / ARC4RANDOM_MAX);
-            data[i][j][3] = ((float)arc4random() / ARC4RANDOM_MAX);
+            x = 0;
+            y++;
         }
+        v = realMin + y*(realMax - realMin)/screenWidth;
+        data[i] = v;
+        v = imMax + x*(imMin - imMax)/screenHeight;
+        data[i+1] = v;
+        data[i+2] = 2.0;// = ((float)arc4random() / ARC4RANDOM_MAX);
+        data[i+3] = 2.0; //((float)arc4random() / ARC4RANDOM_MAX);
+        x++;
     }
+    
+//    for(int i = 0; i < w; i++)
+//    {
+//        for(int j = 0; j < h; j++)
+//        {
+//            float ai = (float)i;
+//            float aj = (float)j;
+//            //data[i][j][0] = -2.0 + ai*(1.0 - -2.0)/256;
+//            //data[i][j][1] = 1.0 + aj*(-1.0 - 1.0)/256;
+//            data[i][j][0] = realMin + ai*(realMax - realMin)/screenWidth;
+//            data[i][j][1] = imMax + aj*(imMin - imMax)/screenHeight;
+//            data[i][j][2] = ((float)arc4random() / ARC4RANDOM_MAX);
+//            data[i][j][3] = ((float)arc4random() / ARC4RANDOM_MAX);
+//        }
+//    }
     
     uint textureID;
     glGenTextures(1, &textureID);
     glBindTexture(GL_TEXTURE_2D, textureID);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 256, 256, 0, GL_BGRA, GL_FLOAT, data);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_FLOAT, data);
     
     GLKTexture *texture = [[GLKTexture alloc] initWithName:textureID];
     
